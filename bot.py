@@ -28,6 +28,8 @@ def fetch_horoscope(message, sign):
     bot.send_message(message.chat.id, "Here's your horoscope!")
     bot.send_message(message.chat.id, horoscope_message, parse_mode="Markdown")
 
-
+@bot.message_handler(func=lambda msg: True)
+def echo_all(message):
+    bot.reply_to(message, "Please run /horoscope to use this bot.")
 
 bot.infinity_polling()
